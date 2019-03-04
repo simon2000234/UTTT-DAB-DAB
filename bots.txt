@@ -1,4 +1,5 @@
 Calamity Ganon
+BestBost
 Drunken Bot
 Fungus foot
 Local Prio ListBot
