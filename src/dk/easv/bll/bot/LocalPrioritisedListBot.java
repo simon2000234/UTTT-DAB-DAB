@@ -4,10 +4,11 @@ import dk.easv.bll.field.IField;
 import dk.easv.bll.game.IGameState;
 import dk.easv.bll.move.IMove;
 import dk.easv.bll.move.Move;
+import java.util.Random;
 
 
 public class LocalPrioritisedListBot implements IBot {
-
+Random rand = new Random();
     private static final String BOTNAME = "Local Prio ListBot";
     // Moves {row, col} in order of preferences. {0, 0} at top-left corner
     protected int[][] preferredMoves = {
@@ -30,6 +31,8 @@ public class LocalPrioritisedListBot implements IBot {
         for (int[] move : preferredMoves)
         {
             if(state.getField().getMacroboard()[move[0]][move[1]].equals(IField.AVAILABLE_FIELD))
+//            if(state.getField().getMacroboard()[move[1]][move[1]].equals(IField.EMPTY_FIELD))
+//            if(state.getField().getBoard().equals(IField.EMPTY_FIELD))
             {
                 //find move to play
                 for (int[] selectedMove : preferredMoves)

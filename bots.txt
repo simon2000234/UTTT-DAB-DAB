@@ -1,4 +1,8 @@
 BestBost
+BotTest
+BestBost
+betterthanbestbot
+ 
 Calamity Ganon
 Drunken Bot
 Fungus foot

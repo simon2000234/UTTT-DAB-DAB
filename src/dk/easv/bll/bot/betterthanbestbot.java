@@ -9,30 +9,40 @@ import dk.easv.bll.field.IField;
 import dk.easv.bll.game.IGameState;
 import dk.easv.bll.move.IMove;
 import dk.easv.bll.move.Move;
+import java.util.List;
 
 /**
  *
  * @author Richart hansen
  */
-public class BestBot extends LocalPrioritisedListBot 
+public class betterthanbestbot extends LocalPrioritisedListBot
 {
-    private static final String BOTNAME="BestBost";
-   
-   
-    public BestBot(){
-        
+ 
+
+
+    private static final String BOTNAME = "betterthanbestbot";
+
+    public betterthanbestbot()
+    {
+            
          int[][] pref = {
-             {1,1},{2,0},{0,2},};
+            {1, 1}, {0, 0}, {0, 2}, {2, 0}, {2, 2},
+         {0, 1}, {1, 0}, {1, 2}, {2, 1}};
+       
          
         super.preferredMoves = pref;
     }
      @Override
     public IMove doMove(IGameState state) {
 
+        
         //Find macroboard to play in
         for (int[] move : preferredMoves)
         {
-            if(state.getField().getMacroboard()[move[0]][move[1]].equals(IField.AVAILABLE_FIELD))
+               
+
+     if(state.getField().getMacroboard()[move[0]][move[1]].equals(IField.AVAILABLE_FIELD))
+            
             {
                 //find move to play
                 for (int[] selectedMove : preferredMoves)
@@ -49,13 +59,14 @@ public class BestBot extends LocalPrioritisedListBot
 
         //NOTE: Something failed, just take the first available move I guess!
         return state.getField().getAvailableMoves().get(0);
+  
     }
     
-    
-     @Override
-    public String getBotName() {
-        return BOTNAME; //To change body of generated methods, choose Tools | Templates.
+    @Override
+    public String getBotName()
+    {
+        return BOTNAME;
     }
-    
     
 }
+
